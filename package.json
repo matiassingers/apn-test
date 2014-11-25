@@ -1,7 +1,7 @@
 {
   "name": "apn-test",
   "version": "0.1.0",
-  "description": "easily test push notifications with this CLI",
+  "description": "quickly test push notifications",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
