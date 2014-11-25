@@ -34,10 +34,50 @@ $ npm install --global apn-test
 ```sh
 $ apn --help
 
-  Example
-    apn
+  quickly test push notifications
     
+  Usage
+    apn <message> --options
+    apn "Hello world" --token=uney4jcnvvw5bc2vlvazog4au1xa0zbcbsjwlfgaj1pi9blcdltgktncfxfwhs5
+    
+  Options
+    --token
+          (required)
+          The device token you wish to send the notification to
+          
+    --cert
+          (default `cert.pem`)
+          The `.pem` file of the connection certificate
+
+    --key
+          (default `key.pem`)
+          The `.pem` file of the connection key
+
+    --development
+          Specifies the sandbox environment, hostname will be set automatically
+
+    --badge
+          (default 0)
+          The value to specify for `payload.aps.badge`
+
+    --sound
+          (default `ping.aiff`)
+          The value to specify for `payload.aps.sound`
+
+    --expiry
+          (default `1 hour`)
+          The UNIX timestamp representing when the notification should expire.
+          An expiry of 0 indicates that the notification expires immediately.
 ```
+
+### Debug
+Enable debug messages by running the CLI with `DEBUG=apn`, like so:
+```sh
+$ DEBUG=apn apn <message> --options
+```
+See the [`node-apn`](https://github.com/argon/node-apn#debugging) documentation for more details.
+
+
 ## Options
 
 Pass in args to the CLI with this syntax: `apn --foo=bar`.
