@@ -44,30 +44,6 @@ $ apn --help
     --token
           (required)
           The device token you wish to send the notification to
-          
-    --cert
-          (default `cert.pem`)
-          The `.pem` file of the connection certificate
-
-    --key
-          (default `key.pem`)
-          The `.pem` file of the connection key
-
-    --development
-          Specifies the sandbox environment, hostname will be set automatically
-
-    --badge
-          (default 0)
-          The value to specify for `payload.aps.badge`
-
-    --sound
-          (default `ping.aiff`)
-          The value to specify for `payload.aps.sound`
-
-    --expiry
-          (default `1 hour`)
-          The UNIX timestamp representing when the notification should expire.
-          An expiry of 0 indicates that the notification expires immediately.
 ```
 
 ### Debug
