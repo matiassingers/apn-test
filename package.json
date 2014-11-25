@@ -26,7 +26,10 @@
     "url": "https://github.com/matiassingers/apn-test/issues"
   },
   "homepage": "https://github.com/matiassingers/apn-test",
-  "dependencies": {},
+  "dependencies": {
+    "apn": "^1.6.2",
+    "lodash.defaults": "^2.4.1",
+  },
   "devDependencies": {
     "mocha": "*"
   }

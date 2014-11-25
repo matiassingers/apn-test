@@ -14,8 +14,14 @@ $ npm install --save apn-test
 ```js
 var apnTest = require('apn-test');
 
-apnTest()
+var message = 'Hello';
+var options = {
+  cert: '/path/to/pushCert.pem',
+  key: '/path/to/pushKey.pem',
+  token: 'uney4jcnvvw5bc2vlvazog4au1xa0zbcbsjwlfgaj1pi9blcdltgktncfxfwhs5'
+};
 
+apnTest(message, options);
 ```
 
 
@@ -32,6 +38,17 @@ $ apn --help
     apn
     
 ```
+## Options
+
+Pass in args to the CLI with this syntax: `apn --foo=bar`.
+- **cert** (default `cert.pem`)
+- **key** (default `key.pem`)
+- **token** (required)
+- **development**
+- **badge** - (default `0`) The value to specify for `payload.aps.badge`
+- **sound** - (default `ping.aiff`) The value to specify for `payload.aps.sound`
+- **expiry** - (default `1 hour`) The UNIX timestamp representing when the notification should expire. An expiry of 0 indicates that the notification expires immediately.
+
 
 
 ## License
