@@ -1,4 +1,4 @@
-# apn-test [![Build Status](http://img.shields.io/travis/matiassingers/apn-test.svg?style=flat-square)](https://travis-ci.org/matiassingers/apn-test) [![Dependency Status](http://img.shields.io/gemnasium/matiassingers/apn-test.svg?style=flat-square)](https://gemnasium.com/matiassingers/apn-test)
+# apn-test [![Build Status](http://img.shields.io/travis/matiassingers/apn-test.svg?style=flat-square)](https://travis-ci.org/matiassingers/apn-test) [![Dependency Status](http://img.shields.io/gemnasium/matiassingers/apn-test.svg?style=flat-square)](https://gemnasium.com/matiassingers/apn-test)  [![Coverage Status](http://img.shields.io/coveralls/matiassingers/apn-test.svg?style=flat-square)](https://coveralls.io/r/matiassingers/apn-test)
 > easily send a test push notification
 
 
