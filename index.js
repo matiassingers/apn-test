@@ -2,6 +2,7 @@
 
 var apn = require('apn');
 var defaults = require('lodash.defaults');
+var noop = require('lodash.noop');
 
 module.exports = function(message, options, callback){
   var defaultOptions = {
@@ -12,6 +13,7 @@ module.exports = function(message, options, callback){
     connectionTimeout: 1000
   };
   options = defaults(options, defaultOptions);
+  callback = callback || noop;
 
   if(!options.token){
     throw new Error('Device token is required');
