@@ -41,7 +41,10 @@
     "meow": "2.0.0"
   },
   "devDependencies": {
+    "coveralls": "2.11.2",
+    "istanbul": "0.3.2",
     "mocha": "2.0.1",
+    "mocha-lcov-reporter": "0.0.1",
     "proxyquire": "1.1.0",
     "random-strings": "0.0.1"
   }
