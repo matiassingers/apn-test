@@ -41,6 +41,8 @@
     "meow": "2.0.0"
   },
   "devDependencies": {
-    "mocha": "2.0.1"
+    "mocha": "2.0.1",
+    "proxyquire": "1.1.0",
+    "random-strings": "0.0.1"
   }
 }
