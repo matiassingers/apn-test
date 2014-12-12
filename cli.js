@@ -14,7 +14,7 @@ var cli = meow({
     '  --token',
     '        (required)',
     '        The device token you wish to send the notification to',
-    '',
+    '        A device token or a list of device tokens that are comma-separated',
     '  --cert',
     '        (default `cert.pem`)',
     '        The `.pem` file of the connection certificate',
@@ -49,6 +49,11 @@ if(!cli.input[0]){
 
 if(cli.flags.development){
   cli.flags.production = false;
+}
+
+// parse tokens to array of tokens
+if(cli.flags.token){
+  cli.flags.token = cli.flags.token.split(',');
 }
 
 apnTest(cli.input[0], cli.flags, function(connection) {

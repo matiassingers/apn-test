@@ -37,6 +37,8 @@
   "dependencies": {
     "apn": "1.6.2",
     "lodash.defaults": "2.4.1",
+    "lodash.isarray": "2.4.1",
+    "lodash.isempty": "2.4.1",
     "lodash.noop": "2.4.1",
     "meow": "2.0.0"
   },

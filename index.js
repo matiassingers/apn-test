@@ -2,6 +2,8 @@
 
 var apn = require('apn');
 var defaults = require('lodash.defaults');
+var isArray = require('lodash.isarray');
+var isEmpty = require('lodash.isempty');
 var noop = require('lodash.noop');
 
 module.exports = function(message, options, callback){
@@ -15,16 +17,23 @@ module.exports = function(message, options, callback){
   options = defaults(options, defaultOptions);
   callback = callback || noop;
 
-  if(!options.token){
+  if(isEmpty(options.token)){
     throw new Error('Device token is required');
   }
 
-  if(options.token.length !== 64){
-    throw new Error('Device token should be 64 characters');
+  if(isArray(options.token)){
+    var device = options.token.map(function(token) {
+      return new apn.Device(token);
+    });
+  } else {
+    if(options.token.length !== 64){
+      throw new Error('Device token should be 64 characters');
+    }
+
+    var device = new apn.Device(options.token);
   }
 
   var connection = new apn.Connection(options);
-  var device = new apn.Device(options.token);
   var notification = new apn.Notification();
 
   notification.alert = message || 'Hello world!';

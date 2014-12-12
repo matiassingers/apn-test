@@ -44,6 +44,7 @@ $ apn --help
     --token
           (required)
           The device token you wish to send the notification to
+          A device token or a list of device tokens that are comma-separated
 ```
 
 ### Debug
@@ -59,7 +60,7 @@ See the [`node-apn`](https://github.com/argon/node-apn#debugging) documentation 
 Pass in args to the CLI with this syntax: `apn --foo=bar`.
 - **cert** (default `cert.pem`)
 - **key** (default `key.pem`)
-- **token** (required)
+- **token** (required) accept single token or a list of tokens that are comma separated
 - **development**
 - **badge** - (default `0`) The value to specify for `payload.aps.badge`
 - **sound** - (default `ping.aiff`) The value to specify for `payload.aps.sound`
