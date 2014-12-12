@@ -60,7 +60,7 @@ See the [`node-apn`](https://github.com/argon/node-apn#debugging) documentation 
 Pass in args to the CLI with this syntax: `apn --foo=bar`.
 - **cert** (default `cert.pem`)
 - **key** (default `key.pem`)
-- **token** (required) accept single token or a list of tokens that are comma separated
+- **token** (required) accepts single token or a comma-separated list of tokens
 - **development**
 - **badge** - (default `0`) The value to specify for `payload.aps.badge`
 - **sound** - (default `ping.aiff`) The value to specify for `payload.aps.sound`
