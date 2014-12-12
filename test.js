@@ -92,6 +92,26 @@ describe('call node-apn with correct properties', function() {
 
       apnTest('test', options);
     });
+
+    describe('call for multiple devices', function() {
+      options.token = [
+        randomStrings.alphaNumLower(64),
+        randomStrings.alphaNumLower(64)
+      ];
+
+      it('call `apn.Notification` with multiple devices', function(done) {
+        apnStub.Connection = function() {
+          return {
+            pushNotification: function(notification, devices) {
+              assert.equal(devices.length, options.token.length);
+              done();
+            }
+          };
+        };
+
+        apnTest('test', options);
+      });
+    });
   });
 
   it('should return connection object in callback', function(done) {
