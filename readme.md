@@ -44,7 +44,7 @@ $ apn --help
     --token
           (required)
           The device token you wish to send the notification to
-          A device token or a list of device tokens that are comma-separated
+          Takes a single token or a comma-separated list of tokens
 ```
 
 ### Debug
