@@ -64,6 +64,7 @@ Pass in args to the CLI with this syntax: `apn --foo=bar`.
 - **development**
 - **badge** - (default `0`) The value to specify for `payload.aps.badge`
 - **sound** - (default `ping.aiff`) The value to specify for `payload.aps.sound`
+- **payload** - (default `{}`) JSON encoded extra payload values
 - **expiry** - (default `1 hour`) The UNIX timestamp representing when the notification should expire. An expiry of 0 indicates that the notification expires immediately.
 
 
