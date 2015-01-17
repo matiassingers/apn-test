@@ -39,6 +39,15 @@ module.exports = function(message, options, callback){
   notification.alert = message || 'Hello world!';
   notification.badge = options.badge || 0;
   notification.sound = options.sound || 'ping.aiff';
+  if(options.payload) {
+    var payload = {};
+    try {
+      payload = JSON.parse(options.payload)
+    } catch(e) {
+      throw new Error('Invalid JSON for payload: ' + e.message);
+    }
+    notification.payload = payload;
+  }
   notification.expiry = options.expiry || Math.floor(Date.now() / 1000) + 3600;
 
   connection.pushNotification(notification, device);
