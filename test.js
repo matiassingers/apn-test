@@ -26,17 +26,6 @@ describe('validation errors', function() {
       return apnTest(null, options);
     }, /64 characters/);
   });
-
-  it('throw error if payload is not json parsable', function() {
-    var options = {
-      token: 'bde105d07345485f72144a8076c7e04289b53e6bac3d9b0879859d44a953acc4',
-      payload: 'abc{'
-    };
-
-    assert.throws(function() {
-      return apnTest(null, options);
-    }, /Invalid JSON/);
-  });
 });
 
 describe('call node-apn with correct properties', function() {
@@ -88,13 +77,6 @@ describe('call node-apn with correct properties', function() {
     };
 
     it('call `apn.Notification` with correct properties', function(done) {
-      var extra = {
-        si_traffic_key: 12345
-      };
-      // Cloning - according to http://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-clone-an-object
-      // it's the fastest way
-      var extendedOptions = JSON.parse(JSON.stringify(options));
-      extendedOptions.payload = JSON.stringify(extra);
       apnStub.Connection = function() {
         return {
           pushNotification: function(notification) {
@@ -102,13 +84,12 @@ describe('call node-apn with correct properties', function() {
             assert.equal(notification.badge, options.badge);
             assert.equal(notification.sound, options.sound);
             assert.equal(notification.expiry, options.expiry);
-            assert.deepEqual(notification.payload, extra);
             done();
           }
         };
       };
 
-      apnTest('test', extendedOptions);
+      apnTest('test', options);
     });
 
     it('call `apn.Notification` with an empty object property if none passed', function(done) {
@@ -119,7 +100,6 @@ describe('call node-apn with correct properties', function() {
             assert.equal(notification.badge, options.badge);
             assert.equal(notification.sound, options.sound);
             assert.equal(notification.expiry, options.expiry);
-            assert.deepEqual(notification.payload, {});
 
             done();
           }

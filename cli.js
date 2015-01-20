@@ -61,6 +61,14 @@ if(cli.flags.token){
   cli.flags.token = cli.flags.token.split(',');
 }
 
+if(cli.flags.payload){
+  try {
+    cli.flags.payload = JSON.parse(cli.flags.payload)
+  } catch(e) {
+    throw new Error('Tried to JSON parse payload string, but it failed with: ' + e.message);
+  }
+}
+
 apnTest(cli.input[0], cli.flags, function(connection) {
   connection.on('connected', function() {
     console.log('Connected to APNS, environment:', cli.flags.production ? 'production' : 'development');
