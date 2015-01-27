@@ -21,8 +21,9 @@ module.exports = function(message, options, callback){
     throw new Error('Device token is required');
   }
 
+  var device;
   if(isArray(options.token)){
-    var device = options.token.map(function(token) {
+    device = options.token.map(function(token) {
       return new apn.Device(token);
     });
   } else {
@@ -30,7 +31,7 @@ module.exports = function(message, options, callback){
       throw new Error('Device token should be 64 characters');
     }
 
-    var device = new apn.Device(options.token);
+    device = new apn.Device(options.token);
   }
 
   var connection = new apn.Connection(options);
