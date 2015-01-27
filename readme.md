@@ -68,6 +68,13 @@ Pass in args to the CLI with this syntax: `apn --foo=bar`.
 - **expiry** - (default `1 hour`) The UNIX timestamp representing when the notification should expire. An expiry of 0 indicates that the notification expires immediately.
 
 
+## Related
+- [`grunt-xcode`](https://github.com/matiassingers/grunt-xcode)
+- [`ipa-metadata`](https://github.com/matiassingers/ipa-metadata)
+- [`entitlements`](https://github.com/matiassingers/entitlements)
+- [`provisioning`](https://github.com/matiassingers/provisioning)
+
+
 ## License
 
 MIT © [Matias Singers](http://mts.io)
