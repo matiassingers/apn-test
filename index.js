@@ -1,10 +1,7 @@
 'use strict';
 
 var apn = require('apn');
-var defaults = require('lodash.defaults');
-var isArray = require('lodash.isarray');
-var isEmpty = require('lodash.isempty');
-var noop = require('lodash.noop');
+var _ = require('lodash');
 
 module.exports = function(message, options, callback){
   var defaultOptions = {
@@ -14,15 +11,15 @@ module.exports = function(message, options, callback){
     production: true,
     connectionTimeout: 1000
   };
-  options = defaults(options, defaultOptions);
-  callback = callback || noop;
+  options = _.defaults(options, defaultOptions);
+  callback = callback || _.noop;
 
-  if(isEmpty(options.token)){
+  if(_.isEmpty(options.token)){
     throw new Error('Device token is required');
   }
 
   var device;
-  if(isArray(options.token)){
+  if(_.isArray(options.token)){
     device = options.token.map(function(token) {
       return new apn.Device(token);
     });
