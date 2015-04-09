@@ -2,7 +2,7 @@
 
 var assert = require('assert');
 var proxyquire =  require('proxyquire');
-var noop = require('lodash.noop');
+var _ = require('lodash');
 var randomStrings = require('random-strings');
 
 var apnStub = {};
@@ -32,10 +32,10 @@ describe('call node-apn with correct properties', function() {
   beforeEach(function() {
     apnStub.Connection = function() {
       return {
-        pushNotification: noop
+        pushNotification: _.noop
       };
     };
-    apnStub.Device = noop;
+    apnStub.Device = _.noop;
   });
 
   var options = {
@@ -49,7 +49,7 @@ describe('call node-apn with correct properties', function() {
         done();
 
         return {
-          pushNotification: noop
+          pushNotification: _.noop
         };
       };
 
