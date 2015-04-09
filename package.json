@@ -36,10 +36,10 @@
   "homepage": "https://github.com/matiassingers/apn-test",
   "dependencies": {
     "apn": "1.6.2",
-    "lodash.defaults": "2.4.1",
-    "lodash.isarray": "2.4.1",
-    "lodash.isempty": "2.4.1",
-    "lodash.noop": "2.4.1",
+    "lodash.defaults": "3.1.0",
+    "lodash.isarray": "3.0.1",
+    "lodash.isempty": "3.0.1",
+    "lodash.noop": "3.0.0",
     "meow": "3.1.0"
   },
   "devDependencies": {
