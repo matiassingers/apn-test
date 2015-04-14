@@ -21,7 +21,7 @@ var cli = meow({
     '        The `.pem` file of the connection certificate',
     '',
     '  --key',
-    '        (default `cert.pem`)',
+    '        (default `key.pem`)',
     '        The `.pem` file of the connection key',
     '',
     '  --development',
