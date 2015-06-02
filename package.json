@@ -4,7 +4,8 @@
   "description": "easily send a test push notification",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec"
   },
   "engines": {
     "node": ">=0.10.0"
