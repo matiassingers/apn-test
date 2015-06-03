@@ -3,6 +3,26 @@
 var apn = require('apn');
 var _ = require('lodash');
 
+function createDeviceTokens(token) {
+  if(!token || _.isEmpty(token)){
+    throw new Error('Device token is required');
+  }
+
+  // Array of tokens
+  if(_.isArray(token)){
+    return token.map(function(token) {
+      return new apn.Device(token);
+    });
+  }
+
+  // Simple length validation for the token length
+  if(token.length !== 64){
+    throw new Error('Device token should be 64 characters');
+  }
+
+  return new apn.Device(token);
+}
+
 module.exports = function(message, options, callback){
   var defaultOptions = {
     cert: 'cert.pem',
@@ -14,22 +34,7 @@ module.exports = function(message, options, callback){
   options = _.defaults(options, defaultOptions);
   callback = callback || _.noop;
 
-  if(_.isEmpty(options.token)){
-    throw new Error('Device token is required');
-  }
-
-  var device;
-  if(_.isArray(options.token)){
-    device = options.token.map(function(token) {
-      return new apn.Device(token);
-    });
-  } else {
-    if(options.token.length !== 64){
-      throw new Error('Device token should be 64 characters');
-    }
-
-    device = new apn.Device(options.token);
-  }
+  var device = createDeviceTokens(options.token);
 
   var connection = new apn.Connection(options);
   var notification = new apn.Notification();
