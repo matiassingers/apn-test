@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/matiassingers/apn-test",
   "dependencies": {
-    "apn": "1.7.3",
+    "apn": "1.7.4",
     "lodash": "3.9.3",
     "meow": "3.1.0"
   },
