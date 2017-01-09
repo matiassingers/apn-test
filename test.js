@@ -55,6 +55,48 @@ describe('call node-apn with correct properties', function() {
 
       apnTest(null, options);
     });
+
+    it('no key or cert properties if only pfx is provided', function(done) {
+      var localOptions = {
+        pfx: './cert.p12',
+        token: options.token
+      }
+
+      apnStub.Connection = function(opts) {
+        assert.strictEqual(opts.key, undefined)
+        assert.strictEqual(opts.cert, undefined)
+
+        done()
+
+        return {
+          pushNotification: _.noop
+        };
+      }
+
+      apnTest(null, localOptions)
+    })
+
+    it('should have key and cert props if provided with pfx', function(done) {
+      var localOptions = {
+        pfx: './cert.p12',
+        key: './myKey.pem',
+        cert: './mycert.pem',
+        token: options.token
+      }
+
+      apnStub.Connection = function(opts) {
+        assert.strictEqual(opts.key, localOptions.key)
+        assert.strictEqual(opts.cert, localOptions.cert)
+
+        done()
+
+        return {
+          pushNotification: _.noop
+        };
+      }
+
+      apnTest(null, localOptions)
+    })
   });
 
   describe('apn.Device', function() {

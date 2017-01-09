@@ -25,12 +25,15 @@ function createDeviceTokens(token) {
 
 module.exports = function(message, options, callback){
   var defaultOptions = {
-    cert: 'cert.pem',
-    key: 'key.pem',
     fastMode: true,
     production: true,
     connectionTimeout: 1000
   };
+
+  if (!options.pfx) {
+    Object.assign(defaultOptions, { cert: 'cert.pem', key: 'key.pem' })
+  }
+
   options = _.defaults(options, defaultOptions);
   callback = callback || _.noop;
 
