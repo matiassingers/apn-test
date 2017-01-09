@@ -31,7 +31,7 @@ module.exports = function(message, options, callback){
   };
 
   if (!options.pfx) {
-    Object.assign(defaultOptions, { cert: 'cert.pem', key: 'key.pem' })
+    _.assign(defaultOptions, { cert: 'cert.pem', key: 'key.pem' })
   }
 
   options = _.defaults(options, defaultOptions);
